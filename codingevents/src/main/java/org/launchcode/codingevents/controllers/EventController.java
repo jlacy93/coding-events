@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
     @GetMapping
-    public String displayuAllEvents(Model model){
+    public String displayAllEvents(Model model){
         List<String> events = new ArrayList<>();
         events.add("Code With Pride");
         events.add("Strange Loop");
@@ -20,5 +20,10 @@ public class EventController {
         events.add("SpringOne Platform");
         model.addAttribute("events",events);
         return "events/index";
+    }
+
+    @GetMapping("create")
+    public String renderCreateEvent(){
+        return "events/create";
     }
 }
